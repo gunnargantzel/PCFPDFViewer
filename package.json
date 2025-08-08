@@ -1,0 +1,19 @@
+{
+  "name": "powerai-pdfviewer-pcf",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PowerAi PdfViewer PCF control for model-driven apps. Renders a Dataverse file column (PDF) with PDF.js.",
+  "scripts": {
+    "build": "pcf-scripts build",
+    "clean": "pcf-scripts clean",
+    "start": "pcf-scripts start"
+  },
+  "dependencies": {
+    "pdfjs-dist": "^4.6.82"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "pcf-scripts": "^1.11.6",
+    "typescript": "^5.4.5"
+  }
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<control namespace="PowerAi" constructor="PdfViewer" version="1.0.0"
+  display-name-key="PowerAi PDF Viewer" description-key="View Dataverse file column (PDF) in a responsive viewer.">
+  <resources>
+    <code path="index.ts" order="1" />
+    <css path="css/styles.css" />
+  </resources>
+  <property name="tableLogicalName" of-type="SingleLine.Text" usage="input" required="true" />
+  <property name="recordId" of-type="SingleLine.Text" usage="bound" required="false" />
+  <property name="fileColumnName" of-type="SingleLine.Text" usage="input" required="true" />
+  <property name="allowDownload" of-type="TwoOptions" usage="input" required="false" />
+  <property name="allowPrint" of-type="TwoOptions" usage="input" required="false" />
+  <property name="pageFit" of-type="Enum" usage="input" required="false">
+    <EnumType name="Fit">
+      <Option name="auto" value="0" />
+      <Option name="width" value="1" />
+      <Option name="page" value="2" />
+    </EnumType>
+  </property>
+  <property name="toolbarVisible" of-type="TwoOptions" usage="input" required="false" />
+  <feature-usage>
+    <uses-feature name="WebAPI" required="true" />
+  </feature-usage>
+  <manifest-version>1.0.0</manifest-version>
+</control>
