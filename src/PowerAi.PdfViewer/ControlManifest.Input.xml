@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<manifest>
 <control namespace="PowerAi" constructor="PdfViewer" version="1.0.0"
   display-name-key="PowerAi PDF Viewer" description-key="View Dataverse file column (PDF) in a responsive viewer.">
   <resources>
@@ -21,5 +22,5 @@
   <feature-usage>
     <uses-feature name="WebAPI" required="true" />
   </feature-usage>
-  <manifest-version>1.0.0</manifest-version>
 </control>
+</manifest>
