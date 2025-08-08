@@ -1,1 +1,0 @@
-export type IInputs = any; export type IOutputs = any;
