@@ -11,17 +11,10 @@
     <property name="fileColumnName" of-type="SingleLine.Text" usage="input" required="true" display-name-key="File Column Name"/>
     <property name="allowDownload" of-type="TwoOptions" usage="input" required="false" display-name-key="Allow Download"/>
     <property name="allowPrint" of-type="TwoOptions" usage="input" required="false" display-name-key="Allow Print"/>
-    <property name="pageFit" of-type="Enum" type-group="Fit" usage="input" required="false" display-name-key="Page Fit"/>
+    <property name="pageFit" of-type="Enum" usage="input" required="false" display-name-key="Page Fit"/>
     <property name="toolbarVisible" of-type="TwoOptions" usage="input" required="false" display-name-key="Toolbar Visible"/>
     <feature-usage>
       <uses-feature name="WebAPI" required="true" />
     </feature-usage>
   </control>
-  <type-groups>
-    <enum name="Fit">
-      <option name="auto" value="0" />
-      <option name="width" value="1" />
-      <option name="page" value="2" />
-    </enum>
-  </type-groups>
 </manifest>
