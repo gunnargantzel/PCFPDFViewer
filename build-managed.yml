@@ -1,0 +1,52 @@
+name: Build Managed Solution
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Power Platform CLI
+        shell: pwsh
+        run: |
+          dotnet tool install --global Microsoft.PowerApps.CLI.Tool --version 1.46.1
+          echo "$env:USERPROFILE\.dotnet\tools" | Out-File -FilePath $env:GITHUB_PATH -Append
+
+      - name: Install dependencies
+        shell: pwsh
+        run: |
+          npm ci
+
+      - name: Build PCF
+        shell: pwsh
+        run: |
+          npx pcf-scripts build
+
+      - name: Prepare solution
+        shell: pwsh
+        run: |
+          mkdir solution
+          cd solution
+          pac solution init --publisher-name "PowerAi" --publisher-prefix "pai"
+          pac solution add-reference --path ../src/PowerAi.PdfViewer
+          cd ..
+
+      - name: Pack Managed
+        shell: pwsh
+        run: |
+          pac solution pack --zipfile PowerAi.PdfViewer_Managed.zip --packagetype Managed
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: PowerAi.PdfViewer_Managed
+          path: PowerAi.PdfViewer_Managed.zip
