@@ -14,7 +14,6 @@
   "devDependencies": {
     "@types/node": "^20.11.17",
     "pcf-scripts": "^1.11.6",
-    "typescript": "^5.4.5",
-    "@types/pcf": "latest"
+    "typescript": "^5.4.5"
   }
 }
